@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mau Mau</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body class="index-body">
+    <main>
+    
+        <div class="container">
+            <h1>Mau Mau</h1>
+            <p>Igra za brze i nemilosrdne </p>
+            <div class="underline"></div>
+            <button class="btn" id="start">START</button>
+            <button type="button" data-toggle="modal" data-target="#rulesmodal" class="btn">Pravila igre</button>
+    
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="rulesmodal" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title" id="exampleModalLongTitle">Pravila igre</h1>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>
+                                Mau mau je veoma popularna kartaška igra na prostorima Balkana koja ima relativno laka pravila koja se vrlo brzo
+                                savladaju.
+                                Kada jednom savladate pravila Mau Mau-a, biće vam teško da se okrenete nekoj drugoj kartaškoj igri.
+                            </p>
+                            <h2>Deljenje</h2>
+                            <p>
+                                Igra se sa dva standardna špila od po 52 karte. Igra se u smeru kazaljke na satu. Delilac prvo daje igraču iza
+                                sebe da preseče.
+                                Ako je presečena karta 'jaka' igrač koji je sekao ima pravo da je zadrži za sebe i da stavi na talon sledeću.
+                                Ukoliko su nakon sečenja dve ili tri karte u nizu 'jake' igrač koji je presekao ima pravo da ih zadrži dok
+                                ukoliko je i četvrta jaka
+                                ona se stavlja na talon licem na gore. Igrač koji seče ne mora da uzme karte za sebe, to je samo njegova odluka.
+                                Potom se svakom igraču deli po 6 karata i to po tri u dva kruga. Ostatak špila se ostavlja pored presečene karte
+                                odakle će igrači kasnije uzimati karte.
+                            </p>
+                            <h2>Igra</h2>
+                            <p>
+                                Igrači izbacuju karte na talon licem na gore i to, ili istu kartu (isti broj) ili kartu u istom znaku, u odnosu
+                                na onu koja je poslednja izbačena
+                                na talon - to su odgovarajuće karte za izbacivanje. Ukoliko nemaju odgovarajuću kartu dužni su da uzmu jednu
+                                kartu sa špila.
+                                Ako ta karta odgovara kriterijumu od malopre igrač može da je izbaci i red prelazi na sledećeg igrača.
+                                Ukoliko ni ona ne odgovara, igrač samo kaže 'Dalje' i red prelazi na sledećeg.
+                                Međutim igrač može i namerno da uzme kartu sa špila iako ima kod sebe odgovarajuću kartu za izbacivanje ukoliko
+                                želi da taktizira.
+                                Pobednik partije je onaj koji prvi izbaci sve karte. Kada igrač ostane sa dve karte u ruci,
+                                pre nego što izbaci pretposlednju dužan je da naglas kaže 'Poslednja karta'.
+                                Ukoliko to ne učini a neko od protivnika mu to sugeriše dužan je da po kazni uzme još dve karte sa špila.
+                                Kada izbaci poslednju kartu igrač je dužan da kaže 'Mau mau'. Ukoliko to ne učini dužan je da po kazni uzme dve
+                                karte i igra se nastavlja.<br>
+                                <strong>Uletanje -</strong> Uletanje je jedan od najzanimljivijih delova ove igre i tera vas da konstantno
+                                budete uključeni u igru i pratite poteze vaših suparnika.
+                                Može se uraditi samo sa identičnom kartom. NPR: Ako igrač baci 6 pik, bilo koji drugi igrač može uleteti i
+                                preskočiti nekoga samo sa identičnom 6 pik!
+                            </p>
+                            <h2>Jake karte</h2>
+                            <ul>
+                                <li>
+                                    <strong>Kec - </strong>kada igač izbaci keca ima pravo (mora) da izbaci još jenu odgovarajuću kartu.
+                                    Ako je ta karta opet kec postupak je isti. Ukoliko igrač po izbacivanju keca kod sebe nema odgovarajuću
+                                    kartu kojom bi opet
+                                    odigrao mora da povuče jednu sa špila i ukoliko je ona odgovarajuća može (ne mora ako taktizira) da je baci.
+                                    Ukoliko ni ona nije odgovarajuća (ili jeste ali igrač taktizira) dužan je da kaže 'Dalje' i sledeći igrač je
+                                    na potezu.
+                                </li>
+                                <li>
+                                    <strong>Mala dvojka ( dvojka tref ) - </strong>ukoliko igrač izbaci malu dvoju igrač pre njega je dužan da
+                                    povuče 4 karte sa špila.
+                                </li>
+                                <li>
+                                    <strong>Šestica pik i šestica tref - </strong>Kaga igrač izbaci neku od ove dve karte ima pravo da zameni
+                                    svoje karte sa bilo kojim drugim igračem,
+                                    ako to želi. Igrač koji želi da zameni svoje karte mora jasno da kaže 'Menjam karte!' pre nego što sledeći
+                                    igrač odigra svoj potez.
+                                </li>
+                                <li>
+                                    <strong>Sedmice - </strong>ukoliko igrač izbaci sedmicu, sledeći koji je na potezu je dužan da vuče 3 karte
+                                    sa špila ukoliko pre toga kod sebe i on nema sedmicu.
+                                    Ukoliko je ima, može (ne mora) da je izbaci pa onda igrač posle njega mora da vuče 6 karata.
+                                    Ako i taj igrač izbaci sedmicu onda sledeći vuče 9, itd. sve dok jedan od igrača nema sedmicu kod sebe da
+                                    odgovri i on vuče sa špila.
+                                    Napomena: Ako igrač koji vuče 3,6,9.. karata jer kod sebe nema sedmicu i u tom povlačenju sa špila izvuče
+                                    sedmicu i baci je,
+                                    sledeći igrač vuče samo 3 karte (prvo kolo je završeno, počinje drugo). Znači, sabiranje sedmica važi sve
+                                    dok jedan od igrača ne pokupi
+                                    odgovarajući broj karata sa špila.
+                                </li>
+                                <li>
+                                    <strong>Osmice - </strong>osmicom se preskače sledeći igrač, odnosno ukoliko igrač koji je na potezu baci
+                                    osmicu,
+                                    preskače igrača koji je sledeći na potezu (na redu je drugi igrač od njega).
+                                    Taj drugi igrač naravno takođe može baciti osmicu jer je to odgovarajuća karta i time preskočiti sledećeg
+                                    igrača.
+                                </li>
+                                <li>
+                                    <strong>Žandari - </strong>žandar menja znak. Jedino za žandare ne važi pravilo odgovarajuće karte za
+                                    izbacivanje,
+                                    jer se on može baciti na bilo koju kartu u bilo kom znaku (iako on nije u tom znaku) i time promeniti znak u
+                                    neki drugi
+                                    (ukoliko igrač želi može zadržati postojeći znak). Jedino pravilo koje važi za žandare je da se jedan žandar
+                                    ne može poklopiti drugim,
+                                    znači ne može žandar na žandara. To je izuzetak od ostalih karata, za sve ostale važe osnovna pravila.
+                                </li>
+                                <li>
+                                    <strong>Dame - </strong>dama menja smer igre i na redu je igrač iza onog koji je bacio damu. Npr. ako se
+                                    trenutno igra u smeru kazaljke na satu i igrač baci damu,
+                                    smer igre se menja u smer suprotan od kazaljke na satu i red prelazi na sledećeg igrača. Naravno, kao i za
+                                    sve druge karte osim žandara, na damu se može odgovoriti
+                                    damom i time ponovo promeniti smer.
+                                </li>
+                            </ul>
+                            <h2>Bodovanje</h2>
+                            <p>
+                                Pobednik igre je onaj igrač koji ima najmanje poena u trenutku kada neki od igrača u zbiru partija pređe
+                                501.<br><br>
+                        
+                                Žandar se boduje sa 20 poena. Ostale 'jake' karte se boduju sa po 10 poena.
+                                Sve druge karte se boduju sa onoliko poena koliko na njima piše. Kralj se boduje sa 10 poena. Pobednik partije
+                                dobija -20 poena.
+                                Ukoliko pobednik partiju završi sa <strong>žandarom</strong> dobija -40 poena, a svima ostalima poeni se
+                                dupliraju.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+        </div>
+    
+    </main>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

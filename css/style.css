@@ -1,0 +1,12 @@
+.index-body {
+    background-image: url('../images/01.jpg');
+    background-position: center center no-repeat;
+}
+
+/* .table-striped tbody tr:nth-of-type(even) {
+    background-color: rgba(0,0,0,.15);
+} */
+
+.player-score {
+    font-weight: bold;
+}
