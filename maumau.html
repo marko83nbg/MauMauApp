@@ -15,11 +15,11 @@
             <form>
                 <label>
                     Unesi ime igračа: <br>
-                    <input name="name" value="" type="text" id="name" class="form-control">
+                    <input name="name" value="" type="text" id="name">
                 </label>
-                <button onclick="addPlayer()" type="button" class="btn">UNESI IGRAČA</button>
+                <button onclick="addPlayer()" type="button" class="buttons">UNESI IGRAČA</button>
             </form>
-            <button type="button" data-toggle="modal" data-target="#mymodal" class="btn">UNESI POBEDNIKA</button>
+            <button type="button" data-toggle="modal" data-target="#mymodal" class="buttons">UNESI POBEDNIKA</button>
             <hr>
             <div id="players">
     
@@ -45,7 +45,7 @@
                                     Unesi datum:<br>
                                     <input type="date" name="name" value="" id="date">
                                 </label>
-                                <button class="btn" id="winners" onclick="addWinner(event)">UNESI</button>
+                                <button class="buttons" id="winners" onclick="addWinner(event)">UNESI</button>
                             </form>
                         
                             <div id="content">

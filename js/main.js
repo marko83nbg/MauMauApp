@@ -26,7 +26,7 @@ function addPlayer() {
         tableHtml += '<tr><td class="player-name">' + players[i].name + '</td>'
                        + '<td id = "final_score_'+idName+'" class = "player-score">' + players[i].score + '</td>'
                        + '<td><input type = "text" id = "curent_score_'+idName+'"></td>'
-                       + '<td><button id = "btn_'+idName+'"  class = "btn btn-submitt" onclick = "addScore(this)">Dodaj</button></td>';
+                       + '<td><button id = "btn_'+idName+'"  class = "buttons" onclick = "addScore(this)">Dodaj</button></td>';
     }
     tableHtml += '</table>';
     document.getElementById('players').innerHTML = tableHtml;

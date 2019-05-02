@@ -14,6 +14,10 @@ h1 {
     font-size: 60px;
 }
 
+h5 {
+    color: #5fc1f0;
+}
+
 .index-h1, 
 .index-p,
 .index-body .buttons {
@@ -51,20 +55,25 @@ h1 {
 }
 
 .buttons {
-    width: 100px;
     border-radius: 5px;
     border: none;
-    margin-bottom: 20px;
     background-color: #1f9fcc;
-    padding-top: 12px;
-    padding-bottom: 12px;
     color: #fff;
     font-weight: bold;
     transition: 1s ease;
+    padding-top: 3px;
+    padding-bottom: 3px;
 }
 
 .buttons:hover {
     background-color: #1470bb;
+}
+
+.index-buttons {
+    width: 100px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    margin-bottom: 20px;
 }
 
 .modal-body h2 {
@@ -82,12 +91,25 @@ h1 {
     background-size: cover;
 }
 
+label {
+    color: #5fc1f0;
+    margin-bottom: 10px;
+}
+
+input {
+    border-color: #1f9fcc;
+    border-radius: 5px;
+    padding-left: 10px;
+}
+
+hr {
+    border-top: 1px solid #5fc1f0;
+}
+
 .table {
     color: #fff;
     background-color: rgba(0,0,0,0.5);
 }
-
-
 
 .player-score,
 .player-name {
