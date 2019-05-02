@@ -1,12 +1,95 @@
+/* style for index.html*/
+
 .index-body {
-    background-image: url('../images/01.jpg');
-    background-position: center center no-repeat;
+    background: url('../images/01.jpg') center center no-repeat fixed;
+    background-size: cover;
+}
+
+.wrapper {
+    margin-top:40%;
+}
+
+h1 {
+    color: #5fc1f0;
+    font-size: 60px;
+}
+
+.index-h1, 
+.index-p,
+.index-body .buttons {
+    -webkit-animation: fadein 3s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein 3s; /* Firefox < 16 */
+    -ms-animation: fadein 3s; /* Internet Explorer */
+    animation: fadein 3s ease-in;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+.index-p {
+    color: #fff;
+}
+
+.buttons {
+    width: 100px;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 20px;
+    background-color: #1f9fcc;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    color: #fff;
+    font-weight: bold;
+    transition: 1s ease;
+}
+
+.buttons:hover {
+    background-color: #1470bb;
+}
+
+.modal-body h2 {
+    color: #5fc1f0;
 }
 
 /* .table-striped tbody tr:nth-of-type(even) {
     background-color: rgba(0,0,0,.15);
 } */
 
-.player-score {
+/* style for maumau.html */
+
+.maumau-body {
+    background: url('../images/02.jpg') center center no-repeat fixed;
+    background-size: cover;
+}
+
+.table {
+    color: #fff;
+    background-color: rgba(0,0,0,0.5);
+}
+
+
+
+.player-score,
+.player-name {
     font-weight: bold;
 }

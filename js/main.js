@@ -1,5 +1,6 @@
-document.getElementById('start').addEventListener('click', () => location.assign('maumau.html'));
-
+function startGame() {
+    location.assign('maumau.html');
+}
 
 var players = [];
 
@@ -22,7 +23,7 @@ function addPlayer() {
 
     for ( var i = 0; i < players.length; i++) {
         var idName = players[i].name.replace(/ /g, '').toLowerCase();
-        tableHtml += '<tr><td>' + players[i].name + '</td>'
+        tableHtml += '<tr><td class="player-name">' + players[i].name + '</td>'
                        + '<td id = "final_score_'+idName+'" class = "player-score">' + players[i].score + '</td>'
                        + '<td><input type = "text" id = "curent_score_'+idName+'"></td>'
                        + '<td><button id = "btn_'+idName+'"  class = "btn btn-submitt" onclick = "addScore(this)">Dodaj</button></td>';
@@ -35,17 +36,7 @@ function addPlayer() {
 
 
 function addScore(btn) {
-//     for( var i = 0; i < players.length; i++) {
-//         var score = document.getElementById('curent_score_'+players[i].name.replace(/ /g, '').toLowerCase()).value;
-//         // alert(score);
-//         var getScore = parseInt(document.getElementById('curent_score_'+players[i].name.replace(/ /g, '').toLowerCase()).value);
-//         players[i].score += getScore;
-//         document.getElementById('final_score_'+players[i].name.replace(/ /g, '').toLowerCase()).innerText = players[i].score;
-//         document.getElementById('curent_score_'+players[i].name.replace(/ /g, '').toLowerCase()).value = '';
-
-    //}
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+    
     var id = btn.id.split('btn_')[1];
     var scoreElement = document.getElementById('curent_score_' + id);
     if (scoreElement.value === '') {
@@ -60,7 +51,7 @@ function addScore(btn) {
     if (playerForUpdate.score < 0) {
         document.getElementById('final_score_'+id).style.color = '#33cc33';
     } else if (playerForUpdate.score >= 0 && playerForUpdate.score <= 250){
-        document.getElementById('final_score_'+id).style.color = '#000';
+        document.getElementById('final_score_'+id).style.color = '#fff';
     } else if (playerForUpdate.score > 250 && playerForUpdate.score <= 380) {
         document.getElementById('final_score_'+id).style.color = '#ffcc00';
     } else if (playerForUpdate.score > 380 && playerForUpdate.score <= 500) {
@@ -85,7 +76,7 @@ function addScore(btn) {
 
 /* LISTA POBEDNIKA */ 
 
-document.getElementById('winners').addEventListener('click', addWinner);
+//document.getElementById('winners').addEventListener('click', addWinner);
 
 function addWinner(event) {
     event.preventDefault();
@@ -122,7 +113,8 @@ function save(winnersName, date) {
 
 function showWinners() {
     const listOfWinners = JSON.parse(localStorage.getItem('listOfWinners'));
-
+    document.getElementById('content').innerHTML = '<table></table>';
+    
     let winnersTableHtml = "<table class='table table-striped'>";
     listOfWinners.forEach(winner => {
         winnersTableHtml += `<tr><td>${winner.winnersName}</td><td>${winner.date}</td></tr>`
@@ -131,6 +123,7 @@ function showWinners() {
     document.getElementById('content').innerHTML += winnersTableHtml;
 }
 
+function deletePlayer() {}
 
 
 
@@ -145,7 +138,6 @@ function showWinners() {
 
 
 
-// TODO: staviti jedno dugme za unos rezultata
-// staviti delete dugme
-// u input staviti type="number"
-// onesposobiti prazan unos rezultata
+
+
+
