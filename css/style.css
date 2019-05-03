@@ -54,6 +54,10 @@ h5 {
     color: #fff;
 }
 
+button:focus{
+    outline: none;
+}
+
 .buttons {
     border-radius: 5px;
     border: none;
@@ -80,9 +84,6 @@ h5 {
     color: #5fc1f0;
 }
 
-/* .table-striped tbody tr:nth-of-type(even) {
-    background-color: rgba(0,0,0,.15);
-} */
 
 /* style for maumau.html */
 
@@ -114,4 +115,9 @@ hr {
 .player-score,
 .player-name {
     font-weight: bold;
+}
+
+.winner-table {
+    font-weight: bold;
+    background-color: rgba(31,159,204,0.6);
 }

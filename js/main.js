@@ -19,14 +19,15 @@ function addPlayer() {
         score: 0,
     });
 
-    var tableHtml = '<table class="table table-striped"><tr><th>Ime</th><th>Rezultat</th><th></th><th></th></tr>';
+    var tableHtml = '<table class="table table-striped"><tr><th>Ime</th><th>Rezultat</th><th></th><th></th><th></th></tr>';
 
     for ( var i = 0; i < players.length; i++) {
         var idName = players[i].name.replace(/ /g, '').toLowerCase();
         tableHtml += '<tr><td class="player-name">' + players[i].name + '</td>'
                        + '<td id = "final_score_'+idName+'" class = "player-score">' + players[i].score + '</td>'
                        + '<td><input type = "text" id = "curent_score_'+idName+'"></td>'
-                       + '<td><button id = "btn_'+idName+'"  class = "buttons" onclick = "addScore(this)">Dodaj</button></td>';
+                       + '<td><button id = "btn_'+idName+'"  class = "buttons" onclick = "addScore(this)">Dodaj</button></td>'
+                       + '<td><button id = "del_btn_'+idName+'"  class = "buttons" onclick = "deletePlayer()">Izbriši</button></td>';
     }
     tableHtml += '</table>';
     document.getElementById('players').innerHTML = tableHtml;
@@ -43,9 +44,10 @@ function addScore(btn) {
         alert('Unesite rezultat!');
         return;
     }
-    var score = parseInt(scoreElement.value);
     
+    var score = parseInt(scoreElement.value);
     var playerForUpdate = players.find(player => player.name.toLowerCase() === id);
+    
     playerForUpdate.score += score;
 
     if (playerForUpdate.score < 0) {
@@ -71,17 +73,43 @@ function addScore(btn) {
 
 }
 
+function deletePlayer() {
+    players.splice('index igraca u nizu', 1);
+
+
+    //ponovni ispis igraca
+    var tableHtml = '<table class="table table-striped"><tr><th>Ime</th><th>Rezultat</th><th></th><th></th><th></th></tr>';
+
+    for ( var i = 0; i < players.length; i++) {
+        var idName = players[i].name.replace(/ /g, '').toLowerCase();
+        tableHtml += '<tr><td class="player-name">' + players[i].name + '</td>'
+                       + '<td id = "final_score_'+idName+'" class = "player-score">' + players[i].score + '</td>'
+                       + '<td><input type = "text" id = "curent_score_'+idName+'"></td>'
+                       + '<td><button id = "btn_'+idName+'"  class = "buttons" onclick = "addScore(this)">Dodaj</button></td>'
+                       + '<td><button id = "del_btn_'+idName+'"  class = "buttons" onclick = "deletePlayer()">Izbriši</button></td>';
+    }
+    tableHtml += '</table>';
+    document.getElementById('players').innerHTML = tableHtml;
+}
+
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /* LISTA POBEDNIKA */ 
 
-//document.getElementById('winners').addEventListener('click', addWinner);
 
 function addWinner(event) {
     event.preventDefault();
     const winnersName = document.getElementById('winners-name').value;
     const date = document.getElementById('date').value;
+
+    if (winnersName === '') {
+        alert(`Morate uneti ime pobednika!`);
+        return;
+    } else if (date === '') {
+        alert(`Morate uneti datum pobede!`);
+        return;
+    }
 
     save(winnersName, date);
     showWinners();
@@ -98,13 +126,11 @@ function save(winnersName, date) {
     }
 
     if (localStorage.getItem('listOfWinners')) {
-        
+
         listOfWinners = JSON.parse(localStorage.getItem('listOfWinners'));
-        
-        if (!listOfWinners.find(winner => winner.winnerName === newWinner.winnerName)) {
+
         listOfWinners.push(newWinner);
         localStorage.setItem('listOfWinners', JSON.stringify(listOfWinners));
-         } 
     } else {
         listOfWinners.push(newWinner);
         localStorage.setItem('listOfWinners', JSON.stringify(listOfWinners));
@@ -113,9 +139,8 @@ function save(winnersName, date) {
 
 function showWinners() {
     const listOfWinners = JSON.parse(localStorage.getItem('listOfWinners'));
-    document.getElementById('content').innerHTML = '<table></table>';
     
-    let winnersTableHtml = "<table class='table table-striped'>";
+    let winnersTableHtml = "<table class='table table-striped winner-table'>";
     listOfWinners.forEach(winner => {
         winnersTableHtml += `<tr><td>${winner.winnersName}</td><td>${winner.date}</td></tr>`
     });
@@ -123,7 +148,7 @@ function showWinners() {
     document.getElementById('content').innerHTML += winnersTableHtml;
 }
 
-function deletePlayer() {}
+
 
 
 
