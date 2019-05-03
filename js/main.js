@@ -46,9 +46,9 @@ function addScore(btn) {
     }
     
     var score = parseInt(scoreElement.value);
-    var playerForUpdate = players.find(player => player.name.toLowerCase() === id);
+    var playerForUpdate = players.find(player => player.name.replace(/ /g, '').toLowerCase() === id);// ovde je morao da se doda regexp da bi ispeglao razmake
     
-    playerForUpdate.score += score;
+    playerForUpdate.score += score;// kada se upise ime sa razmakom aplikacija ne radi iako je odradjen regeksp da ispegla razmake
 
     if (playerForUpdate.score < 0) {
         document.getElementById('final_score_'+id).style.color = '#33cc33';
@@ -145,7 +145,7 @@ function showWinners() {
         winnersTableHtml += `<tr><td>${winner.winnersName}</td><td>${winner.date}</td></tr>`
     });
     winnersTableHtml += "</table>";
-    document.getElementById('content').innerHTML += winnersTableHtml;
+    document.getElementById('content').innerHTML = winnersTableHtml;
 }
 
 
