@@ -74,7 +74,7 @@ button:focus{
 }
 
 .index-buttons {
-    width: 100px;
+    width: 105px;
     padding-top: 12px;
     padding-bottom: 12px;
     margin-bottom: 20px;
@@ -110,11 +110,24 @@ hr {
 .table {
     color: #fff;
     background-color: rgba(0,0,0,0.5);
+    text-align: center;
 }
 
 .player-score,
 .player-name {
     font-weight: bold;
+}
+
+.win_btn {
+    margin-top: 10px;
+}
+
+.del_btn {
+    background-color: #9c0b06;
+}
+
+.del_btn:hover {
+    background-color: #eb0c0c;
 }
 
 .winner-table {

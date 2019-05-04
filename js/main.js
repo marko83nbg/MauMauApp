@@ -4,16 +4,20 @@ function startGame() {
 
 var players = [];
 
+/* funkcija dodaje igraca u tabelu */
 function addPlayer() {
     var playersName = document.getElementById('name').value;
+    
     if ( playersName.length == 0 ) {
         alert( 'Unesite ime igrača!' );
         return;
     }
-    if (players.find(player => player.name.toLowerCase() === playersName)) {
+    
+    if (players.find(player => player.name.toLowerCase() === playersName.toLowerCase())) {
         alert( `Igrac sa imenom ${playersName} vec postoji!`);
         return;
     }
+    
     players.push({
         name: playersName,
         score: 0,
@@ -27,7 +31,7 @@ function addPlayer() {
                        + '<td id = "final_score_'+idName+'" class = "player-score">' + players[i].score + '</td>'
                        + '<td><input type = "text" id = "curent_score_'+idName+'"></td>'
                        + '<td><button id = "btn_'+idName+'"  class = "buttons" onclick = "addScore(this)">Dodaj</button></td>'
-                       + '<td><button id = "del_btn_'+idName+'"  class = "buttons" onclick = "deletePlayer()">Izbriši</button></td>';
+                       + '<td><button id = "del_btn_'+idName+'"  class = "buttons del_btn" onclick = "deletePlayer(this)">Izbriši</button></td>';
     }
     tableHtml += '</table>';
     document.getElementById('players').innerHTML = tableHtml;
@@ -35,31 +39,32 @@ function addPlayer() {
       
 };
 
-
+/* funkcija za sabiranje rezultata */
 function addScore(btn) {
     
     var id = btn.id.split('btn_')[1];
     var scoreElement = document.getElementById('curent_score_' + id);
+    
     if (scoreElement.value === '') {
         alert('Unesite rezultat!');
         return;
     }
     
     var score = parseInt(scoreElement.value);
-    var playerForUpdate = players.find(player => player.name.replace(/ /g, '').toLowerCase() === id);// ovde je morao da se doda regexp da bi ispeglao razmake
+    var playerForUpdate = players.find(player => player.name.replace(/ /g, '').toLowerCase() === id);
     
-    playerForUpdate.score += score;// kada se upise ime sa razmakom aplikacija ne radi iako je odradjen regeksp da ispegla razmake
+    playerForUpdate.score += score;
 
     if (playerForUpdate.score < 0) {
         document.getElementById('final_score_'+id).style.color = '#33cc33';
     } else if (playerForUpdate.score >= 0 && playerForUpdate.score <= 250){
         document.getElementById('final_score_'+id).style.color = '#fff';
     } else if (playerForUpdate.score > 250 && playerForUpdate.score <= 380) {
-        document.getElementById('final_score_'+id).style.color = '#ffcc00';
+        document.getElementById('final_score_'+id).style.color = '#ffe400';
     } else if (playerForUpdate.score > 380 && playerForUpdate.score <= 500) {
-        document.getElementById('final_score_'+id).style.color = '#ff9933';
+        document.getElementById('final_score_'+id).style.color = '#f87811';
     } else {
-        document.getElementById('final_score_'+id).style.color = '#cc0000';
+        document.getElementById('final_score_'+id).style.color = '#9c0b06';
     }
 
     document.getElementById('final_score_'+id).innerText = playerForUpdate.score;
@@ -73,10 +78,14 @@ function addScore(btn) {
 
 }
 
-function deletePlayer() {
-    players.splice('index igraca u nizu', 1);
+/* funkcija za brisanje igraca */
+function deletePlayer(btn) {
+    
+    var id = btn.id.split('del_btn_')[1];
+    var indexOfPlayerForDelete = players.findIndex(player => player.name.replace(/ /g, '').toLowerCase() === id);
 
-
+    players.splice(indexOfPlayerForDelete, 1);
+    
     //ponovni ispis igraca
     var tableHtml = '<table class="table table-striped"><tr><th>Ime</th><th>Rezultat</th><th></th><th></th><th></th></tr>';
 
@@ -86,7 +95,7 @@ function deletePlayer() {
                        + '<td id = "final_score_'+idName+'" class = "player-score">' + players[i].score + '</td>'
                        + '<td><input type = "text" id = "curent_score_'+idName+'"></td>'
                        + '<td><button id = "btn_'+idName+'"  class = "buttons" onclick = "addScore(this)">Dodaj</button></td>'
-                       + '<td><button id = "del_btn_'+idName+'"  class = "buttons" onclick = "deletePlayer()">Izbriši</button></td>';
+                       + '<td><button id = "del_btn_'+idName+'"  class = "buttons del_btn" onclick = "deletePlayer(this)">Izbriši</button></td>';
     }
     tableHtml += '</table>';
     document.getElementById('players').innerHTML = tableHtml;
@@ -97,7 +106,7 @@ function deletePlayer() {
 
 /* LISTA POBEDNIKA */ 
 
-
+/* funkcija za ispisivanje pobednika*/
 function addWinner(event) {
     event.preventDefault();
     const winnersName = document.getElementById('winners-name').value;
@@ -118,6 +127,7 @@ function addWinner(event) {
     document.getElementById('date').value = '';
 }
 
+/* funkcija za cuvanje pobednika u local storage */
 function save(winnersName, date) {
     let listOfWinners = [];
     const newWinner = {
@@ -137,6 +147,7 @@ function save(winnersName, date) {
     }
 }
 
+/* funkcija za prikazivanje pobednika */ 
 function showWinners() {
     const listOfWinners = JSON.parse(localStorage.getItem('listOfWinners'));
     
