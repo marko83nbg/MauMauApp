@@ -9,7 +9,7 @@ function addPlayer() {
     var playersName = document.getElementById('name').value;
     
     if ( playersName.length == 0 ) {
-        alert( 'Unesite ime igrača!' );
+        alert( `Unesite ime igrača!`);
         return;
     }
     
@@ -46,7 +46,7 @@ function addScore(btn) {
     var scoreElement = document.getElementById('curent_score_' + id);
     
     if (scoreElement.value === '') {
-        alert('Unesite rezultat!');
+        alert(`Unesite rezultat!`);
         return;
     }
     
