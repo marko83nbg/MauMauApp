@@ -103,6 +103,10 @@ input {
     padding-left: 10px;
 }
 
+.modal-button {
+    margin-top: 10px;
+}
+
 hr {
     border-top: 1px solid #5fc1f0;
 }

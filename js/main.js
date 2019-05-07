@@ -51,6 +51,11 @@ function addScore(btn) {
     }
     
     var score = parseInt(scoreElement.value);
+    if (isNaN(score)) {
+        alert(`Morate uneti broj!`);
+        return;
+    }
+    
     var playerForUpdate = players.find(player => player.name.replace(/ /g, '').toLowerCase() === id);
     
     playerForUpdate.score += score;
@@ -102,7 +107,7 @@ function deletePlayer(btn) {
 }
 
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /* LISTA POBEDNIKA */ 
 
